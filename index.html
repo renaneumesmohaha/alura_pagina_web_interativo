@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terra do Amanhã | Agronegócio Sustentável</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease, font-size 0.2s ease;
+        }
+
+        /* Efeito de Revelação (Intersection Observer) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#121212',
+                        darkSurface: '#1e1e1e',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-stone-50 text-stone-900 font-sans antialiased text-[16px]" id="body-content">
+
+    <div class="fixed bottom-6 right-6 z-50 bg-white dark:bg-darkSurface shadow-2xl rounded-2xl p-4 border border-stone-200 dark:border-stone-800 max-w-xs transition-all duration-300" role="complementary" aria-label="Painel de Acessibilidade">
+        <h2 class="font-serif font-semibold text-lg mb-3 dark:text-stone-100 flex items-center gap-2">
+            <span>♿</span> Painel de Acessibilidade
+        </h2>
+        
+        <div class="space-y-4">
+            <div>
+                <label for="font-slider" class="block text-xs font-medium text-stone-500 dark:text-stone-400 mb-1">Tamanho do Texto</label>
+                <input type="range" id="font-slider" min="12" max="24" value="16" class="w-full accent-emerald-600 bg-stone-200 dark:bg-stone-700 h-1 rounded-lg appearance-none cursor-pointer">
+                <div class="flex justify-between text-[10px] text-stone-400 mt-1">
+                    <span>12px</span>
+                    <span id="font-indicator">16px</span>
+                    <span>24px</span>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-stone-100 dark:border-stone-800">
+                <span class="text-xs font-medium text-stone-500 dark:text-stone-400">Modo Escuro</span>
+                <button id="dark-toggle" class="relative inline-flex h-6 w-11 items-center rounded-full bg-stone-300 dark:bg-emerald-600 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2" aria-pressed="false">
+                    <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform translate-x-1 dark:translate-x-6"></span>
+                </button>
+            </div>
+
+            <div class="pt-2 border-t border-stone-100 dark:border-stone-800">
+                <button id="tts-toggle" class="w-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 font-medium text-xs py-2 px-3 rounded-lg border border-emerald-200 dark:border-emerald-900/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/80 transition-colors flex items-center justify-center gap-2">
+                    <span id="tts-icon">🔊</span> <span id="tts-text">Ouvir Página</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <header class="border-b border-stone-200 dark:border-stone-800 py-6 px-8 dark:bg-darkBg transition-colors">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="font-serif tracking-widest text-xl font-semibold uppercase dark:text-stone-100">Terra do Amanhã</span>
+            <nav aria-label="Navegação Principal">
+                <ul class="flex gap-8 text-sm uppercase tracking-wider font-medium text-stone-600 dark:text-stone-400">
+                    <li><a href="#proposito" class="hover:text-emerald-600 transition-colors">Propósito</a></li>
+                    <li><a href="#tecnologia" class="hover:text-emerald-600 transition-colors">Tecnologia</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dark:bg-darkBg transition-colors pb-24">
+        <section class="max-w-6xl mx-auto px-8 pt-16 md:pt-24 grid md:grid-cols-12 gap-8 items-center section-narrative" data-section-title="Introdução: O futuro do agronegócio sustentável">
+            <div class="md:col-span-7 space-y-6">
+                <p class="text-xs uppercase tracking-widest font-semibold text-emerald-700 dark:text-emerald-500">領 Agricultura de Precisão & Consciência</p>
+                <h1 class="font-serif text-4xl md:text-6xl text-stone-900 dark:text-stone-100 leading-tight">
+                    O cultivo inteligente que respeita o tempo da <i>Terra</i>.
+                </h1>
+                <p class="text-stone-600 dark:text-stone-400 leading-relaxed max-w-xl font-light">
+                    Unimos a sofisticação tecnológica à preservação ambiental. O futuro do agronegócio não reside apenas na máxima produtividade, mas na harmonia simbiótica entre o ecossistema e os dados gerados no campo.
+                </p>
+            </div>
+            <div class="md:col-span-5">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad451?q=80&w=600&auto=format&fit=crop" 
+                     alt="Plantação verdejante e tecnológica sob a luz do amanhecer" 
+                     class="w-full h-[450px] object-cover rounded-sm grayscale-[20%] hover:grayscale-0 transition-all duration-700 shadow-xl">
+            </div>
+        </section>
+
+        <section id="proposito" class="max-w-4xl mx-auto px-8 pt-32 reveal section-narrative" data-section-title="Seção: Nosso Propósito">
+            <div class="border-t border-stone-300 dark:border-stone-700 pt-8">
+                <span class="text-xs font-mono text-stone-400">01 / SUSTENTABILIDADE</span>
+                <h2 class="font-serif text-3xl md:text-4xl mt-4 mb-6 dark:text-stone-100">Eficiência molecular, regeneração local.</h2>
+                <div class="grid md:grid-cols-2 gap-8 text-stone-600 dark:text-stone-400 leading-relaxed font-light">
+                    <p>
+                        A agricultura de precisão atua cirurgicamente. Através do monitoramento inteligente do solo e da hidratação localizada, reduzimos o desperdício de insumos em até 40%, devolvendo vitalidade às bacias hidrográficas locais.
+                    </p>
+                    <p>
+                        Mais do que produzir alimentos, nossa missão estrutural é garantir que o solo permaneça vivo e nutritivo para as próximas gerações, mitigando pegadas de carbono ativamente a cada ciclo de colheita.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologia" class="max-w-4xl mx-auto px-8 pt-32 reveal section-narrative" data-section-title="Seção: Inovação Tecnológica">
+            <div class="border-t border-stone-300 dark:border-stone-700 pt-8">
+                <span class="text-xs font-mono text-stone-400">02 / INOVAÇÃO</span>
+                <h2 class="font-serif text-3xl md:text-4xl mt-4 mb-6 dark:text-stone-100">Ferramentas que lêem os sinais da natureza.</h2>
+                <p class="text-stone-600 dark:text-stone-400 leading-relaxed font-light mb-8">
+                    Sensores de Internet das Coisas (IoT) enterrados no solo detectam variações milimétricas de nutrientes. Juntos, esses dados criam uma malha preditiva que antecipa pragas sem a necessidade de intervenções químicas massivas.
+                </p>
+                <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=800&auto=format&fit=crop" 
+                     alt="Visão macro de folha saudável com gotas de orvalho, representando a precisão natural" 
+                     class="w-full h-64 object-cover rounded-sm grayscale-[30%] dark:opacity-80">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- 1. CONTROLE DE FONTE ---
+        const fontSlider = document.getElementById('font-slider');
+        const fontIndicator = document.getElementById('font-indicator');
+        const bodyContent = document.getElementById('body-content');
+
+        fontSlider.addEventListener('input', (e) => {
+            const size = e.target.value;
+            bodyContent.style.fontSize = `${size}px`;
+            fontIndicator.textContent = `${size}px`;
+        });
+
+        // --- 2. BOTÃO INTERATIVO: MODO ESCURO ---
+        const darkToggle = document.getElementById('dark-toggle');
+        
+        darkToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            darkToggle.setAttribute('aria-pressed', isDark);
+            
+            const ball = darkToggle.querySelector('span');
+            if(isDark) {
+                ball.classList.remove('translate-x-1');
+                ball.classList.add('translate-x-6');
+            } else {
+                ball.classList.remove('translate-x-6');
+                ball.classList.add('translate-x-1');
+            }
+        });
+
+        // --- 3. BOTÃO INTERATIVO: LEITURA DE VOZ (API) ---
+        const ttsToggle = document.getElementById('tts-toggle');
+        const ttsText = document.getElementById('tts-text');
+        const ttsIcon = document.getElementById('tts-icon');
+        
+        let synth = window.speechSynthesis;
+        let isSpeaking = false;
+        let utteranceQueue = [];
+        let currentUtteranceIndex = 0;
+
+        function setupSpeechQueue() {
+            utteranceQueue = [];
+            currentUtteranceIndex = 0;
+            const sections = document.querySelectorAll('.section-narrative');
+            
+            sections.forEach((section) => {
+                const sectionTitle = section.getAttribute('data-section-title');
+                const sectionText = section.innerText; 
+                
+                const fullTextToRead = `${sectionTitle}. ${sectionText}`;
+                const utterance = new SpeechSynthesisUtterance(fullTextToRead);
+                utterance.lang = 'pt-BR';
+                
+                utterance.onend = () => {
+                    currentUtteranceIndex++;
+                    if (currentUtteranceIndex < utteranceQueue.length && isSpeaking) {
+                        synth.speak(utteranceQueue[currentUtteranceIndex]);
+                    } else {
+                        stopSpeech();
+                    }
+                };
+                utterance.onerror = () => stopSpeech();
+                utteranceQueue.push(utterance);
+            });
+        }
+
+        function stopSpeech() {
+            synth.cancel();
+            isSpeaking = false;
+            ttsText.textContent = "Ouvir Página";
+            ttsIcon.textContent = "🔊";
+            ttsToggle.classList.remove('bg-red-50', 'dark:bg-red-950/40', 'text-red-700', 'dark:text-red-400', 'border-red-200');
+        }
+
+        function startSpeech() {
+            if (synth.speaking) synth.cancel();
+            setupSpeechQueue();
+            
+            if (utteranceQueue.length > 0) {
+                isSpeaking = true;
+                ttsText.textContent = "Parar Leitura";
+                ttsIcon.textContent = "⏹️";
+                ttsToggle.classList.add('bg-red-50', 'dark:bg-red-950/40', 'text-red-700', 'dark:text-red-400', 'border-red-200');
+                synth.speak(utteranceQueue[currentUtteranceIndex]);
+            }
+        }
+
+        ttsToggle.addEventListener('click', () => {
+            if (!isSpeaking) {
+                startSpeech();
+            } else {
+                stopSpeech();
+            }
+        });
+
+        window.addEventListener('beforeunload', () => synth.cancel());
+
+        // --- 4. SCROLL ANIMATIONS ---
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
